@@ -217,38 +217,19 @@ function countDown(e) {
 }
 const countDownElt = document.getElementById('countdown');
 const startGameBtn = document.getElementById('startgame');
+const leftBtn = document.getElementById('left');
+const upBtn = document.getElementById('up');
+const rightBtn = document.getElementById('right');
+const downBtn = document.getElementById('down');
+leftBtn.addEventListener('click', (key) => console.log(`${key === 'q'}`));
 startGameBtn.addEventListener('click', startGame);
 backgroundMusic.addEventListener('timeupdate', countDown);
 window.addEventListener('keydown', keydown);
 function keydown(e) {
+  console.log(e.key);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  switch (e.keyCode) {
-    case 38:
-      pacMan.velocity.x = 0;
-      pacMan.velocity.y = -1 * speed;
-      clearTimeout(timeoutID);
-      movePacman();
-      controlSound.play();
-      key.classList.add('playing');
-
-      setTimeout(() => {
-        key.classList.remove('playing');
-      }, 100);
-      break;
-    case 40:
-      pacMan.velocity.x = 0;
-      pacMan.velocity.y = 1 * speed;
-      clearTimeout(timeoutID);
-      movePacman();
-      controlSound.play();
-      key.classList.add('playing');
-
-      setTimeout(() => {
-        key.classList.remove('playing');
-      }, 100);
-
-      break;
-    case 37:
+  switch (e.key) {
+    case 'ArrowLeft':
       pacMan.velocity.x = -1 * speed;
       pacMan.velocity.y = 0;
       clearTimeout(timeoutID);
@@ -261,7 +242,19 @@ function keydown(e) {
       }, 100);
 
       break;
-    case 39:
+    case 'ArrowUp':
+      pacMan.velocity.x = 0;
+      pacMan.velocity.y = -1 * speed;
+      clearTimeout(timeoutID);
+      movePacman();
+      controlSound.play();
+      key.classList.add('playing');
+
+      setTimeout(() => {
+        key.classList.remove('playing');
+      }, 100);
+      break;
+    case 'ArrowRight':
       pacMan.velocity.x = 1 * speed;
       pacMan.velocity.y = 0;
       clearTimeout(timeoutID);
@@ -272,6 +265,20 @@ function keydown(e) {
       setTimeout(() => {
         key.classList.remove('playing');
       }, 100);
+      break;
+    case 'ArrowDown':
+      pacMan.velocity.x = 0;
+      pacMan.velocity.y = 1 * speed;
+      clearTimeout(timeoutID);
+      movePacman();
+      controlSound.play();
+      key.classList.add('playing');
+
+      setTimeout(() => {
+        key.classList.remove('playing');
+      }, 100);
+
+      break;
 
     default:
       break;
