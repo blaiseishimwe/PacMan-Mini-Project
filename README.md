@@ -1,6 +1,6 @@
 # Pacman Mini project
 
-![alt text](images\pacman.png)
+![alt text](pacman.png)
 
 https://pacmanbis.netlify.app/
 
