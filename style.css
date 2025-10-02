@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700');
+
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.graphics {
+
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 300;
+
+}
+
+.pacman {
+  z-index: 1;
+}
+
+.gamescreen {
+  border: 10px ridge rgb(198, 239, 245);
+  background-color:#eee;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 40px;
+  left: 250px;
+  height: 400px;
+  width: 700px;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  position: absolute;
+}
+
+header {
+  background: #f4f4f4;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.mybutton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.mybutton:hover{
+  background-color: #aaedf7;
+}
+
+.keys {
+  position: absolute;
+  font-size: 40px;
+  width: 500px;
+  margin: 100px auto;
+}
+
+.keys kbd {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.keys .playing kbd {
+  transform: scale(1.2);
+  transition: all 0.07s;
+  background: #3cc0d4;
+}
