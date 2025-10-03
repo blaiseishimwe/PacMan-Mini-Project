@@ -7,6 +7,30 @@ body {
   padding: 0;
 }
 
+#left {
+position: relative;
+top: 121px;
+left: 25px;
+}
+
+#right {
+position: relative;
+top: 31px;
+left: 145px;
+}
+
+#up {
+position: relative;
+top: 25px;
+left: 85px;
+}
+
+#down {
+position: relative;
+top: 35px;
+left: 85px;
+}
+
 .graphics {
 
   display: inline-block;

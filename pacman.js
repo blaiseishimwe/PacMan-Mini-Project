@@ -65,9 +65,10 @@ function createFruit() {
   game.appendChild(img);
 }
 // Pacman Factory
+let game = document.getElementById('game');
 function makePacman() {
   // Add image to div id = game
-  let game = document.getElementById('game');
+
   let pacmanImg = document.createElement('img');
   pacmanImg.setAttribute('id', 'pacman');
   pacmanImg.classList.add('pacman');
@@ -145,7 +146,7 @@ function pacmanFruitCollision() {
         Math.abs(
           Number(fruitNode.style.left.replace('px', '')) -
             Number(pacMan.pacmanImg.style.left.replace('px', ''))
-        ) <= 15
+        ) <= 20
       ) {
         if (
           Math.abs(
@@ -210,24 +211,79 @@ function countDown(e) {
   const { duration, currentTime } = e.target;
 
   countDownElt.innerText = Math.floor(duration - currentTime);
-  if (Math.floor(duration - currentTime) === 0) {
+  if (Math.floor(duration - currentTime) <= 0) {
     endgame();
-    alert('game over');
   }
 }
+
+// change heading
+const headWest = () => {
+  const key = document.querySelector('.key[data-key="ArrowLeft"]');
+  pacMan.velocity.x = -1 * speed;
+  pacMan.velocity.y = 0;
+  clearTimeout(timeoutID);
+  movePacman();
+  controlSound.play();
+  key.classList.add('playing');
+
+  setTimeout(() => {
+    key.classList.remove('playing');
+  }, 100);
+};
+const headNorth = () => {
+  const key = document.querySelector('.key[data-key="ArrowUp"]');
+  pacMan.velocity.x = 0;
+  pacMan.velocity.y = -1 * speed;
+  clearTimeout(timeoutID);
+  movePacman();
+  controlSound.play();
+  key.classList.add('playing');
+
+  setTimeout(() => {
+    key.classList.remove('playing');
+  }, 100);
+};
+const headEast = () => {
+  const key = document.querySelector('.key[data-key="ArrowRight"]');
+  pacMan.velocity.x = 1 * speed;
+  pacMan.velocity.y = 0;
+  clearTimeout(timeoutID);
+  movePacman();
+  controlSound.play();
+  key.classList.add('playing');
+
+  setTimeout(() => {
+    key.classList.remove('playing');
+  }, 100);
+};
+const headSouth = () => {
+  const key = document.querySelector('.key[data-key="ArrowDown"]');
+  pacMan.velocity.x = 0;
+  pacMan.velocity.y = 1 * speed;
+  clearTimeout(timeoutID);
+  movePacman();
+  controlSound.play();
+  key.classList.add('playing');
+
+  setTimeout(() => {
+    key.classList.remove('playing');
+  }, 100);
+};
 const countDownElt = document.getElementById('countdown');
 const startGameBtn = document.getElementById('startgame');
 const leftBtn = document.getElementById('left');
 const upBtn = document.getElementById('up');
 const rightBtn = document.getElementById('right');
 const downBtn = document.getElementById('down');
-leftBtn.addEventListener('click', (key) => console.log(`${key === 'q'}`));
+leftBtn.addEventListener('click', headWest);
+upBtn.addEventListener('click', headNorth);
+rightBtn.addEventListener('click', headEast);
+downBtn.addEventListener('click', headSouth);
 startGameBtn.addEventListener('click', startGame);
 backgroundMusic.addEventListener('timeupdate', countDown);
 window.addEventListener('keydown', keydown);
 function keydown(e) {
-  console.log(e.key);
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  const key = document.querySelector(`.key[data-key="${e.key}"]`);
   switch (e.key) {
     case 'ArrowLeft':
       pacMan.velocity.x = -1 * speed;
@@ -286,9 +342,18 @@ function keydown(e) {
 }
 
 function endgame() {
+  const gameOverElt = document.createElement('p');
+  gameOverElt.innerText = `GAME OVER. Score: ${score}.`;
   document.getElementById('pacman').remove();
   backgroundMusic.pause();
-  window.location.reload();
+  setTimeout(
+    () => document.getElementById('gamescreen').appendChild(gameOverElt),
+    1000
+  );
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 5000);
 }
 
 // const gameScreen = document.getElementById('gamescreen');
