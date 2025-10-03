@@ -1,39 +1,39 @@
 <html>
   <head>
-    <title>Pacmen</title>
+    <title>Pacman Mini</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <div id="game">
-      <div id="dashboard" class = "graphics">
-      
-      <button id = "startgame" class="mybutton" width="200" height="30">Start Game</button>
-      <div id = "score" class ="graphics">Score</div>
-      <div id = "countdown" class ="graphics">countdown</div>
-
-      </div>
-      
+      <div id="dashboard" class = "graphics">      
+        <button id = "startgame" class="mybutton" width="200" height="30">Start Game</button>
+        <div id = "score" class ="graphics">Score</div>
+        <div id = "countdown" class ="graphics">countdown</div>
+      </div>      
       <div id="controls" class="keys">
             <div  data-key="ArrowLeft" class="key">
-            <kbd id="left">&#8592</kbd>
+              <kbd id="left">&#8592</kbd>
             </div>
             <div data-key="ArrowUp" class="key">
-            <kbd id="up">&#8593</kbd>
+              <kbd id="up">&#8593</kbd>
             </div>
             <div data-key="ArrowRight" class="key">
-            <kbd id="right">&#8594</kbd>
+              <kbd id="right">&#8594</kbd>
             </div>
             <div data-key="ArrowDown" class="key">
-            <kbd id="down">&#8595</kbd>
+              <kbd id="down">&#8595</kbd>
             </div>
       </div>
-      <div id="gamescreen" class="gamescreen"><p>To Start the game, click Start Game button and use arrows on the keyboard to make turns as needed. Press and hold arrow key to speed up in the desired direction. Eat as many fruits as you can, keeping an eye on the countdown. Enjoy the game!</p></div>
+      <div id="gamescreen" class="gamescreen">
+        <p>To Start the game, click Start Game button and use arrows on the keyboard to make turns as needed. Press and hold arrow key to speed up in the desired direction. Eat as many fruits as you can, keeping an eye on the countdown. Enjoy the game!</p>
+      </div>
     </div>
     <audio src="sounds\clap.wav" id="controlsound"></audio>
     <audio src="sounds\boom.wav" id="collisionsound"></audio>
     <audio src="sounds\snare.wav" id="scoresound"></audio>
     <audio src="sounds\ukulele.mp3" id="backgroundmusic"></audio>
+    <script src="./pacman.js"></script>
   </body>
-  <script src="./pacman.js"></script>
+  
 </html>
