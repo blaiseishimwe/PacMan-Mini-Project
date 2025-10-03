@@ -22,7 +22,7 @@ let score = 0;
 const xCoordinates = [
   300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 940,
 ];
-const yCoordinates = [135, 200, 250, 300, 350, 400, 430, 480];
+const yCoordinates = [150, 200, 250, 300, 350, 400, 450, 500];
 let pacMan;
 var speed = 10;
 let timeoutID;
@@ -121,11 +121,11 @@ function checkWallCollision(item) {
     collisionSound.play();
     item.pacmanImg.src = pacArray[item.direction][0];
   }
-  if (item.position.y + item.velocity.y + item.pacmanImg.width > 540) {
+  if (item.position.y + item.velocity.y + item.pacmanImg.width > 560) {
     item.velocity.y = -item.velocity.y;
     collisionSound.play();
     item.pacmanImg.src = pacArray[item.direction][0];
-  } else if (item.position.y + item.velocity.y < 112) {
+  } else if (item.position.y + item.velocity.y < 140) {
     item.velocity.y = -item.velocity.y;
     collisionSound.play();
     item.pacmanImg.src = pacArray[item.direction][0];
